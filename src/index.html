@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Addition Tester</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Addition Tester</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="container">
-        <h1>Addition Tester</h1>
-        <div id="question-container">
-            <p id="question"></p>
-            <input type="number" id="answer" placeholder="Your answer" />
-            <button id="next-button">Next</button>
-        </div>
-        <div id="result-container" class="hidden">
-            <h2>Your Results</h2>
-            <p id="score"></p>
-            <button id="restart-button">Restart</button>
-        </div>
+  <div class="container">
+    <h1>Addition Tester</h1>
+    <div id="quiz">
+      <div class="numbers">
+        <span id="num1">?</span>
+        <span class="plus">+</span>
+        <span id="num2">?</span>
+      </div>
+      <input type="number" id="answer" placeholder="Your answer" autocomplete="off"/>
+      <button id="nextBtn">Next</button>
+      <div id="progress"></div>
     </div>
-    <script src="app.js"></script>
+    <div id="result" class="hidden">
+      <h2>Results</h2>
+      <p id="score"></p>
+      <button id="restartBtn">Restart</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

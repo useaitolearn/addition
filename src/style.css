@@ -1,62 +1,105 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #4a90e2;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
 }
 
 .question {
-    font-size: 1.5em;
-    margin: 20px 0;
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+.numbers {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.plus {
+  font-weight: bold;
 }
 
 input[type="number"] {
-    padding: 10px;
-    font-size: 1em;
-    border: 2px solid #4a90e2;
-    border-radius: 5px;
-    width: 100px;
-    text-align: center;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1rem;
+  width: 120px;
+  text-align: center;
 }
 
 input[type="number"]:focus {
-    border-color: #007bff;
-    outline: none;
+  border-color: #007bff;
+  outline: none;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background: #6e8efb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
 }
 
 button:hover {
-    background-color: #007bff;
+  background: #a777e3;
 }
 
 .results {
-    margin-top: 30px;
-    font-size: 1.2em;
-    display: none;
+  margin-top: 30px;
+  font-size: 1.2em;
+  display: none;
 }
 
 .restart {
-    margin-top: 20px;
-    display: none;
+  margin-top: 20px;
+  display: none;
+}
+
+#progress {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#result h2 {
+  color: #fff;
+}
+
+#score {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }

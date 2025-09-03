@@ -1,0 +1,25 @@
+{
+  "name": "addition-tester",
+  "version": "1.0.0",
+  "description": "A simple addition tester website that generates random addition questions.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here'",
+    "deploy": "gh-pages -d src"
+  },
+  "keywords": [
+    "addition",
+    "tester",
+    "javascript",
+    "website"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "gh-pages": "^3.2.3",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://yourusername.github.io/addition-tester"
+}

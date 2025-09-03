@@ -1,60 +1,65 @@
-const questionCount = 10;
-let currentQuestion = 0;
-let score = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const num1El = document.getElementById('num1');
+  const num2El = document.getElementById('num2');
+  const answerEl = document.getElementById('answer');
+  const nextBtn = document.getElementById('nextBtn');
+  const progressEl = document.getElementById('progress');
+  const quizEl = document.getElementById('quiz');
+  const resultEl = document.getElementById('result');
+  const scoreEl = document.getElementById('score');
+  const restartBtn = document.getElementById('restartBtn');
 
-const num1Element = document.getElementById('num1');
-const num2Element = document.getElementById('num2');
-const answerInput = document.getElementById('answer');
-const nextButton = document.getElementById('next');
-const resultElement = document.getElementById('result');
-const restartButton = document.getElementById('restart');
+  let questions = [];
+  let current = 0;
+  let correct = 0;
 
-function generateQuestion() {
-    const num1 = Math.floor(Math.random() * 100);
-    const num2 = Math.floor(Math.random() * 100);
-    num1Element.textContent = num1;
-    num2Element.textContent = num2;
-    return num1 + num2;
-}
-
-let correctAnswer = generateQuestion();
-
-nextButton.addEventListener('click', () => {
-    const userAnswer = parseInt(answerInput.value);
-    if (userAnswer === correctAnswer) {
-        score++;
+  function generateQuestions() {
+    questions = [];
+    for (let i = 0; i < 10; i++) {
+      const a = Math.floor(Math.random() * 100);
+      const b = Math.floor(Math.random() * 100);
+      questions.push({a, b, answer: a + b});
     }
-    currentQuestion++;
-    answerInput.value = '';
+  }
 
-    if (currentQuestion < questionCount) {
-        correctAnswer = generateQuestion();
+  function showQuestion() {
+    const q = questions[current];
+    num1El.textContent = q.a;
+    num2El.textContent = q.b;
+    answerEl.value = '';
+    answerEl.focus();
+    progressEl.textContent = `Question ${current + 1} of 10`;
+  }
+
+  function showResult() {
+    quizEl.classList.add('hidden');
+    resultEl.classList.remove('hidden');
+    scoreEl.textContent = `You got ${correct} out of 10 correct!`;
+  }
+
+  nextBtn.onclick = function() {
+    const userAns = parseInt(answerEl.value, 10);
+    if (!isNaN(userAns) && userAns === questions[current].answer) {
+      correct++;
+    }
+    current++;
+    if (current < 10) {
+      showQuestion();
     } else {
-        showResults();
+      showResult();
     }
+  };
+
+  restartBtn.onclick = function() {
+    current = 0;
+    correct = 0;
+    generateQuestions();
+    showQuestion();
+    quizEl.classList.remove('hidden');
+    resultEl.classList.add('hidden');
+  };
+
+  // Initialize
+  generateQuestions();
+  showQuestion();
 });
-
-function showResults() {
-    num1Element.style.display = 'none';
-    num2Element.style.display = 'none';
-    answerInput.style.display = 'none';
-    nextButton.style.display = 'none';
-    resultElement.textContent = `You scored ${score} out of ${questionCount}`;
-    resultElement.style.display = 'block';
-    restartButton.style.display = 'block';
-}
-
-restartButton.addEventListener('click', () => {
-    currentQuestion = 0;
-    score = 0;
-    num1Element.style.display = 'block';
-    num2Element.style.display = 'block';
-    answerInput.style.display = 'block';
-    nextButton.style.display = 'block';
-    resultElement.style.display = 'none';
-    restartButton.style.display = 'none';
-    correctAnswer = generateQuestion();
-});
-
-// Initialize the first question
-correctAnswer = generateQuestion();
